@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { ChangeEvent, FormEvent, useState } from "react"
 
-export default function SearchInput() {
+export const SearchInput = () => {
 
     const [query, setQuery] = useState("");
 
@@ -20,10 +20,10 @@ export default function SearchInput() {
     }
 
     return (
-        <form onSubmit={handleSearch}>
+        <form onSubmit={handleSearch} className="w-1/2">
             <input
                 type="text"
-                className="flex-1 w-full max-w-xl px-8 py-3 text-center text-gray-100 bg-gray-600 rounded-full sm:px-4 placeholder:text-gray-400"
+                className="w-full px-8 py-3 text-center text-gray-100 bg-gray-600 rounded-full sm:px-4 placeholder:text-gray-400"
                 placeholder="What kind of ship are you looking for?"
                 onChange={handleQuery}
                 value={query}

@@ -1,15 +1,9 @@
-import { Starship } from "@/types/Starship";
+import { StarshipList } from "@/components/StarshipList";
+import { store } from "@/store";
 
 export default async function Home() {
-
-  // const res = await fetch("https://swapi.dev/api/starships/")
-  // const data = await res.json();
-  // const starships: Starship[] = data.results
+  const starships = store.getState().search.starships
   return (
-    <div className="">
-      {/* {starships.map((ship) => (
-        <div className="">{ship.name}</div>
-      ))} */}
-    </div>
+    <StarshipList starships={starships} />
   )
 }

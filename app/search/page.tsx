@@ -2,10 +2,10 @@
 
 import { useSearchParams } from "next/navigation"
 
-export default function SearchPage() {
+export default function Search() {
 
     const search = useSearchParams();
     const searchQuery = search ? search.get("q") : null
 
-    return <div className="">Here is what we've got for ya</div>
+    return <div className="">Here is what we&apos;ve got for ya</div>
 }
