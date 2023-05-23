@@ -1,8 +1,12 @@
 import { StarshipList } from "@/components/StarshipList";
-import { store } from "@/store";
+import getAllStarships from "@/service/getAllStarships";
 
 export default async function Home() {
-  const starships = store.getState().search.starships
+
+  const starships = await getAllStarships()
+
+  if (!starships) throw new Error("Starships list not found")
+
   return (
     <StarshipList starships={starships} />
   )

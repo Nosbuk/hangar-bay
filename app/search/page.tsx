@@ -1,12 +1,12 @@
-"use client";
-
+import { StarshipList } from "@/components/StarshipList";
 import getAllStarships from "@/service/getAllStarships";
-import { useSearchParams } from "next/navigation"
+import searchStarship from "@/service/searchStarship";
+import { PageProps } from "@/types/PageProps";
 
-export default async function Search() {
 
-    const search = useSearchParams();
-    const searchQuery = search ? search.get("q") : null
-    const starships = await getAllStarships();
-    return <div className="">Here is what we&apos;ve got for ya</div>
+export default async function Search({ searchParams }: PageProps) {
+    const query = searchParams?.query;
+    const starships = query ? await searchStarship(query) : await getAllStarships()
+    if (!starships) throw new Error("Ships not found")
+    return <StarshipList starships={starships} />
 }
