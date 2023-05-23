@@ -18,8 +18,6 @@ export default async function RootLayout({
 
   const films = await getAllFilms()
 
-  if (!films) throw new Error("Films list not found")
-
   return (
     <html lang="en">
       <body className="text-gray-100 bg-black">
