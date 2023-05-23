@@ -12,7 +12,7 @@ export default function Error({
     reset: () => void;
 }) {
     return <div className="flex flex-col items-center gap-3">
-        <p className="mt-6 text-xl font-bold text-center text-red-400">{error.message}</p>
+        <p className="mt-6 text-xl font-bold text-center text-red-400">Ups! Something went wrong!</p>
         <Link href="/" className="flex items-center gap-2 underline"><AiFillHome />Home Page</Link>
         <button className="flex items-center gap-2 underline" onClick={reset}><FiRefreshCcw />Try again</button>
     </div>
