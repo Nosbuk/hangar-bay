@@ -12,7 +12,7 @@ export const SearchInput = () => {
     const handleSearch = (event: FormEvent) => {
         event.preventDefault();
         const encodedQuery = encodeURI(query);
-        router.push(`/search/?q=${encodedQuery}`)
+        router.push(`/search/?query=${encodedQuery}`)
     }
 
     const handleQuery = (event: ChangeEvent<HTMLInputElement>) => {
@@ -20,11 +20,11 @@ export const SearchInput = () => {
     }
 
     return (
-        <form onSubmit={handleSearch} className="w-full">
+        <form onSubmit={handleSearch} className="flex justify-center w-full mb-2 sm:max-w-md">
             <input
                 type="text"
-                className="block w-full max-w-sm p-2 mx-auto my-2 text-center text-gray-100 bg-gray-800 rounded-full placeholder:text-gray-400"
-                placeholder="What kind of ship are you looking for?"
+                className="w-full p-2 text-center text-gray-100 bg-gray-800 sm:rounded-full placeholder:text-gray-400"
+                placeholder="Search for any ship"
                 onChange={handleQuery}
                 value={query}
             />
