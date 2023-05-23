@@ -15,8 +15,8 @@ export const StarshipList = ({ starships }: Props) => {
         <article className="flex flex-col items-center w-full mt-2">
             {
                 starships.map((ship) =>
-                    <section>
-                        <Link href={`/ship/${ship.slug}`} key={ship.url} className="flex items-center justify-between w-full p-3 my-2 text-sm bg-gray-900 rounded-none sm:max-w-xl sm:rounded-lg sm:text-lg hover:bg-gray-800">
+                    <section key={ship.url} >
+                        <Link href={`/ship/${ship.slug}`} className="flex items-center justify-between w-full p-3 my-2 text-sm bg-gray-900 rounded-none sm:max-w-xl sm:rounded-lg sm:text-lg hover:bg-gray-800">
                             <h3 className="mr-auto">
                                 {ship.name}
                             </h3>
