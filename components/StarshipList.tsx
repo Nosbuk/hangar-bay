@@ -9,7 +9,7 @@ interface Props {
 
 export const StarshipList = ({ starships }: Props) => {
 
-    if (starships.length === 0) throw new Error("Ships not found")
+    if (starships.length === 0) return <div className="mt-20 text-xl">No ships found!</div>
 
     return (
         <article className="flex flex-col items-center w-full mt-2">

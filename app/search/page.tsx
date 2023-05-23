@@ -7,6 +7,5 @@ import { PageProps } from "@/types/PageProps";
 export default async function Search({ searchParams }: PageProps) {
     const query = searchParams?.query;
     const starships = query ? await searchStarship(query) : await getAllStarships()
-    if (!starships) throw new Error("Ships not found")
     return <StarshipList starships={starships} />
 }
