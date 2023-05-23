@@ -1,22 +1,25 @@
 "use client"
 
+import Dropdown from "react-dropdown";
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { ImCross } from "react-icons/im"
 
 interface Props {
-    index: number
+    href: string
     title: string
 }
 
-export const FilmLink = ({ index, title }: Props) => {
+export const FilmLink = ({ href, title }: Props) => {
+
     const pathname = usePathname()
-    const href = `/film/${index}`
     const isActive = pathname.startsWith(href)
+
     return (
-        <Link className={'mx-4 flex items-center gap-2 underline font-bold' + (isActive ? ' text-blue-500' : ' text-blue-200')} href={href}>
-            {title}
-            {isActive ? <Link href={'/'}><ImCross className='text-red-500' size={14} /></Link> : <ImCross className='text-transparent' size={14} />}
-        </Link>
-    )
+        <div className="flex items-center gap-1">
+            <Link className={"ml-4 flex items-center gap-2 whitespace-nowrap underline font-bold" + (isActive ? " text-blue-500" : " text-blue-200")} href={href}>
+                {title}
+            </Link>
+            {isActive ? <Link href={"/"}><ImCross className="text-blue-800" size={14} /></Link> : <ImCross className="text-transparent" size={14} />}
+        </div>)
 }
